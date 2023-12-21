@@ -8,16 +8,16 @@
 /* File generated on December 21, 2023, 11:39 am */
 
 /* Add the location to Maxima's search path */
-file_search_maxima:append( [sconcat("/data/web/www/vhosts/www.eduvidual.at/question/type/stack/stack/maxima/###.{mac,mc}")] , file_search_maxima)$
-file_search_lisp:append( [sconcat("/data/web/www/vhosts/www.eduvidual.at/question/type/stack/stack/maxima/###.{lisp}")] , file_search_lisp)$
-file_search_maxima:append( [sconcat("/data/stagingumgebung/moodle-data-meine.bildung.at/stack/logs/###.{mac,mc}")] , file_search_maxima)$
-file_search_lisp:append( [sconcat("/data/stagingumgebung/moodle-data-meine.bildung.at/stack/logs/###.{lisp}")] , file_search_lisp)$
+file_search_maxima:append( [sconcat("${LIB}/###.{mac,mc}")] , file_search_maxima)$
+file_search_lisp:append( [sconcat("${LIB}/###.{lisp}")] , file_search_lisp)$
+file_search_maxima:append( [sconcat("${LOG}/###.{mac,mc}")] , file_search_maxima)$
+file_search_lisp:append( [sconcat("${LOG}/###.{lisp}")] , file_search_lisp)$
 
 STACK_SETUP(ex):=block(
     MAXIMA_VERSION_NUM_EXPECTED:0,
     MAXIMA_PLATFORM:"server",
-    maxima_tempdir:"/data/stagingumgebung/moodle-data-meine.bildung.at/stack/tmp/",
-    IMAGE_DIR:"/data/stagingumgebung/moodle-data-meine.bildung.at/stack/plots/",
+    maxima_tempdir:"${TMP}",
+    IMAGE_DIR:"${PLOT}",
     PLOT_SIZE:[450,300],
     PLOT_TERMINAL:"svg",
     PLOT_TERM_OPT:"dynamic font \",11\" linewidth 1.2",
@@ -37,9 +37,5 @@ STACK_SETUP(ex):=block(
     stack_unit_other_unit_tex:["\\mathrm{min}", "\\mathrm{amu}", "\\mathrm{u}", "\\mathrm{mmHg}", "\\mathrm{bar}", "\\mathrm{ha}", "\\mathrm{cc}", "\\mathrm{gal}", "\\mathrm{mbar}", "\\mathrm{atm}", "\\mathrm{torr}", "\\mathrm{rev}", "\\mathrm{{}^{o}}", "\\mathrm{rpm}", "\\mathrm{au}", "\\mathrm{Da}", "\\mathrm{Np}", "\\mathrm{B}", "\\mathrm{dB}", "\\mathrm{day}", "\\mathrm{year}", "\\mathrm{hp}", "\\mathrm{in}", "\\mathrm{ft}", "\\mathrm{yd}", "\\mathrm{mi}", "\\mathrm{lb}"],
     true)$
 /* Load the main libraries. */
-load("stackmaxima.mac")$
-load("stats")$
-load("distrib")$
-load("descriptive")$
-load("simplex")$
+/* load("stackmaxima.mac")$ */
 print(sconcat("[ STACK-Maxima started, library version ", stackmaximaversion, " ]"))$
